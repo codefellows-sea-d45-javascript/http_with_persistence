@@ -21,7 +21,7 @@ A get request to the same route should return the data contained in the json fil
 
 Rubric:
 
-Handles REST requests: 3pts
-JSON storage: 3pts 
-Tests: 2pts
-Project Organization and Development Files: 2pts
+  * Handles REST requests: 3pts
+  * JSON storage: 3pts 
+  * Tests: 2pts
+  * Project Organization and Development Files: 2pts
