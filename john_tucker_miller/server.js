@@ -5,11 +5,11 @@ var bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
 
-app.get('/', function(req, res){
+app.get('/route', function(req, res){
   res.json(JSON.parse(fs.readFileSync('./data/data.json')));
 });
 
-app.post('/', function (req, res) {
+app.post('/route', function (req, res) {
   fs.writeFileSync('./data/data.json', JSON.stringify(req.body));
 });
 
