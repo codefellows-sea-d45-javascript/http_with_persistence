@@ -1,0 +1,22 @@
+{
+  "name": "emily_landi",
+  "version": "0.1.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emlandi/http_with_persistence.git"
+  },
+  "author": "emily.landi@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/emlandi/http_with_persistence/issues"
+  },
+  "homepage": "https://github.com/emlandi/http_with_persistence#readme",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}
