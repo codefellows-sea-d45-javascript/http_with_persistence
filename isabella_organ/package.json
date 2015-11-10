@@ -1,0 +1,25 @@
+{
+  "name": "isabella_organ",
+  "version": "1.0.0",
+  "description": "HTTP server with persistance",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha/test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isabellaorgan/http_with_persistence.git"
+  },
+  "keywords": [
+    "HTTP",
+    "server",
+    "express",
+    "node"
+  ],
+  "author": "isabellaorgan@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/isabellaorgan/http_with_persistence/issues"
+  },
+  "homepage": "https://github.com/isabellaorgan/http_with_persistence#readme"
+}
