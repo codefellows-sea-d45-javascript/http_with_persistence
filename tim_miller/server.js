@@ -23,7 +23,7 @@ app.get('/database', function(req, res, next) {
 
   fs.readFile(__dirname + '/data/database.json', function(err, data) {
     if(err) throw err;
-    req.database += data;
+    req.database = data;
     req.database = req.database.toString();
     next();
   });

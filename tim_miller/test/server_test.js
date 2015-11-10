@@ -10,11 +10,11 @@ describe('our express app', function() {
 
   describe('receiveing a post request', function() {
 
-    var fileContents = '';
 
     before(function(done) {
+      this.fileContents = '';
       fs.readFile(__dirname + '/../data/database.json', function(err, data) {
-        fileContents += data;
+        this.fileContents = data;
         done();
       });
     });
@@ -29,21 +29,22 @@ describe('our express app', function() {
             newFileContents += data;
             expect(res).to.have.status(200);
             expect(res.text).to.eql('Thanks for the data.');
-            expect(fileContents + '{"test":"test"}').to.eql(newFileContents);
-            expect(fileContents.length + 15).to.eql(newFileContents.length);
+            expect(this.fileContents + '{"test":"test"}').to.eql(newFileContents);
+            expect(this.fileContents.length + 15).to.eql(newFileContents.length);
             done();
           });
-        });
+        }.bind(this));
     });
   });
 
   describe('receiving a get request', function() {
 
-    var fileContents = '';
 
     before(function(done) {
+
+      this.fileContents = '';
       fs.readFile(__dirname + '/../data/database.json', function(err, data) {
-        fileContents += data;
+        this.fileContents = data;
         done();
       });
     });
@@ -54,9 +55,9 @@ describe('our express app', function() {
         .end(function(err, res) {
           expect(err).to.eql(null);
           expect(res).to.have.status(200);
-          expect(res.text).to.eql(fileContents);
+          expect(res.text).to.eql(this.fileContents.toString());
           done();
         });
-    });
+    }.bind(this));
   });
 });
