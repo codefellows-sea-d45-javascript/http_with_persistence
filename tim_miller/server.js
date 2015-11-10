@@ -7,7 +7,6 @@ app.use(bodyParser.json());
 
 
 app.post('/database', function(req, res, next) {
-  console.log(JSON.stringify(req.body));
     fs.appendFile(__dirname + '/data/database.json', JSON.stringify(req.body), function(err, data) {
       if(err) throw err;
       next();
