@@ -1,0 +1,17 @@
+{
+  "name": "iryna_bondarenko",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "test.js"
+  },
+  "keywords": [
+    "express"
+  ],
+  "author": "irusiabondarenko@gmail.com",
+  "license": "ISC",
+  "devDependencies": {
+    "express": "^4.13.3"
+  }
+}
