@@ -21,5 +21,13 @@
   "bugs": {
     "url": "https://github.com/isabellaorgan/http_with_persistence/issues"
   },
-  "homepage": "https://github.com/isabellaorgan/http_with_persistence#readme"
+  "homepage": "https://github.com/isabellaorgan/http_with_persistence#readme",
+  "dependencies": {
+    "express": "^4.13.3"
+  },
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "gulp-mocha": "^2.1.3",
+    "mocha": "^2.3.3"
+  }
 }
