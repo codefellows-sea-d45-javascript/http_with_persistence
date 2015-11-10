@@ -1,0 +1,11 @@
+{
+  "name": "http_server_with_persistence",
+  "version": "1.0.0",
+  "description": "http server with persistence",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ansoo <asc2683@gmail.com> (https://github.com/anschang/)",
+  "license": "MIT"
+}
