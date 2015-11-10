@@ -1,0 +1,29 @@
+  {
+  "name": "http_with_persistence",
+  "version": "1.0.0",
+  "description": "Describe deeznutz",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/picklekitch/http_with_persistence.git"
+  },
+  "author": "Will Kitchell (william.kitchell@gmail.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/picklekitch/http_with_persistence/issues"
+  },
+  "homepage": "https://github.com/picklekitch/http_with_persistence#readme",
+  "devDependencies": {
+    "body-parser": "^1.14.1",
+    "chai": "^3.4.1",
+    "chai-http": "^1.0.0",
+    "express": "^4.13.3",
+    "mocha": "^2.3.3"
+  }
+}
