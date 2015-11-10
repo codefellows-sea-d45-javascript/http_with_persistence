@@ -18,12 +18,12 @@ var processData = function(req, res, next) {
 
 app.use(processData);
 
-//should return msg from json file in data directory but currently returns blank file
+//return msg from json file in data directory
 app.get('/data/:name', function(req, res) {
   console.log('get request hit');
-  console.log(req.body); //this is console logged as a blank line
-  fs.readFileSync(__dirname + '/data/' + req.params.name + '.json', req.text);
-  res.send(req.text);
+  var contents = fs.readFileSync(__dirname + '/data/' + req.params.name + '.json');
+  var JSONcontent = JSON.parse(contents);
+  res.send(JSONcontent);
   console.log('returned contents of file');
 });
 
