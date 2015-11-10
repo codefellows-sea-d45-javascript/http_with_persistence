@@ -1,0 +1,14 @@
+{
+  "name": "http_persistence",
+  "version": "1.0.0",
+  "description": "an http server that will act as a simple data store",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Jenny Pollack",
+  "license": "MIT"
+}
