@@ -13,7 +13,6 @@ app.get('/something/:name', function(req, res) {
 app.post('/something/:name', function(req, res) {
   console.log(req.body);
   var stringData = JSON.stringify(req.body);
-  console.log(req.params.name);
   fs.writeFileSync(__dirname + '/data/' + req.params.name + '.json', stringData);
   res.end();
 });
