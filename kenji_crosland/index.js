@@ -15,19 +15,18 @@ app.post('/notes',jsonParser, function(req, res){
   var postString = JSON.stringify(req.body);
     fs.readFile(__dirname + '/data/notes.json', function(err, data){
       if (err) throw err;
-      var fileObj;
       var returnjson;
       if(data.toString().length > 0){
-        fileObj = JSON.parse(data.toString());
-        postObj = JSON.parse(postString);
-        var output = [data.toString().slice()]
-        //Some help http://stackoverflow.com/questions/33623299/javascript-appending-a-post-request-json-string-to-existing-json-file
-        for (var key in postObj){
-          fileObj[key] = postObj[key];
+        var fileString = JSON.parse(data.toString());
+        var myArray = fileString.notes;
+        for (var i = 0; i < myArray.length; i++){
+          myArray[i] = JSON.stringify(myArray[i]);
         }
-        returnjson = JSON.stringify(fileObj);
+        myArray.push(postString);
+        var myString = myArray.join(', ');
+          returnjson = '{"notes":[' + myString + ']}';
         } else {
-          returnjson = postString;
+          returnjson = '{"notes":[' + postString + ']}';
         }
       fs.writeFile(__dirname + '/data/notes.json', returnjson, function(err){
         if (err) throw err;
@@ -37,5 +36,5 @@ app.post('/notes',jsonParser, function(req, res){
 });
 
 app.listen(3000, function(){
-  console.log('Server up and running at PORT 3000')
+  console.log('Server up and running at PORT 3000');
 });
