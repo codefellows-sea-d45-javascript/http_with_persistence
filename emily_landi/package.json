@@ -4,7 +4,7 @@
   "description": "http_with_persistence",
   "main": "server.js",
   "scripts": {
-    "test": "mocha"
+    "test": "./node_modules/mocha/bin/mocha test"
   },
   "repository": {
     "type": "git",

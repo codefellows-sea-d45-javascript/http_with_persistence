@@ -27,7 +27,7 @@ app.get('/data/:name', function(req, res) {
   console.log('returned contents of file');
 });
 
-//saves incoming msg to json file in data directory
+//save incoming msg to json file in data directory
 app.post('/data/:name', function(req, res) {
   console.log('post request hit');
   fs.writeFileSync(__dirname + '/data/' + req.params.name + '.json', req.body);
