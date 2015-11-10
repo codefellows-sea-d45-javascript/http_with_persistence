@@ -28,6 +28,10 @@ app.get('data', function(req, res, next) {
   }
 })
 
+app.get('/data', function(req, res) {
+  res.send(req.data);
+})
+
 app.listen(app.get('port'), function() {
   console.log('Server listening at ' + app.get('port') + '.');
 })
