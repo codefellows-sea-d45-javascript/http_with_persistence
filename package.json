@@ -1,0 +1,29 @@
+{
+  "name": "http_with_persistence",
+  "version": "0.1.0",
+  "description": "HTTP Server With Persistence ============================ To complete this assignment:   * fork this repository (the sub module for this specific assignment)   * clone down your fork   * place all of your work in a folder that is your full name, use `_`s instead of spaces   * push back up to your fork   * create a pull request back to the original repo   * submit a link to the PR in canvas",
+  "main": "server.js",
+  "directories": {
+    "test": "./node_modules/mocha/bin/mocha test"
+  },
+  "scripts": {
+    "test": "",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timcmiller/http_with_persistence.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/timcmiller/http_with_persistence/issues"
+  },
+  "homepage": "https://github.com/timcmiller/http_with_persistence#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-jshint": "^1.12.0",
+    "gulp-mocha": "^2.1.3",
+    "jshint-stylish": "^2.0.1"
+  }
+}
