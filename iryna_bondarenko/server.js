@@ -4,23 +4,25 @@ var express = require('express');
 var fs = require('fs');
 var app = express();
 
-var process = function(req, res, next) {
-  var info = '';
-  req.on('info', function(reqData) {
-    info += reqData.toString();
+var processData = function(req, res, next) {
+  var data = '';
+  req.on('data', function(reqData) {
+    data = data + reqData.toString();
   });
-  req.on('end', function() {
-    req.body = info;
+  req.on('end', function(endData) {
+    req.body = data;
     next();
   });
 };
 
-app.post('/note', process, function(req, res) {
-  fs.writeFileSync(__dirname + '/data/note.json', req.body)
+app.post('/:note', processData, function(req, res) {
+  fs.writeFile(__dirname + '/data/'+req.params.note + '.json', req.body + ',');
+  res.send("Post received");
 });
 
-app.get('/note', function(req, res) {
-  fs.readFileSync(__dirname + '/data/note.json', function(err, data) {
+app.get('/:note', function(req, res){
+  fs.readFile(__dirname + '/data/'+ req.params.note + '.json', function(err, data){
+    if (err) throw err;
     res.send(data.toString());
   });
 });
