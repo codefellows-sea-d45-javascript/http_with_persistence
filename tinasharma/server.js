@@ -1,3 +1,5 @@
+'use strict';
+
 var express = require('express');
 var app = express();
 var fs = require('fs');
@@ -16,16 +18,21 @@ var processData = function(req, res, next) {
 
 app.use(processData);
 
-app.post('/name', function(req, res) {
-  fs.writeFileSync(__dirname + '/data/name.json', req.body);
+app.post('/:name', function(req, res) {
+  var name = req.params.name;
+  fs.writeFileSync(__dirname + '/data/' + name + '.json', req.body);
   res.send('hey there');
 });
 
-app.get('/name', function(req, res) {
-  var read = fs.readFileSync(__dirname + '/data/name.json');
+app.get('/:name', function(req, res) {
+  var name = req.params.name;
+  var read = fs.readFileSync(__dirname + '/data/' + name + '.json');
     res.send(read.toString());
 });
 
 app.listen(3000, function() {
   console.log('server up');
 });
+
+//for superagent - {msg: "'hello world'"}
+
