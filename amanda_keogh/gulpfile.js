@@ -38,4 +38,4 @@ gulp.task('watch', function() {
   gulp.watch(testFiles, ['jshint:tests']);
 });
 
-gulp.task('default', ['watch']);
+gulp.task('default', ['jshint:apps', 'jshint:tests', 'mocha']);
