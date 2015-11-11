@@ -16,11 +16,11 @@ var process = function(req, res, next) {
 };
 
 app.post('/note', process, function(req, res) {
-  fs.writeFile(__dirname + '/data/note.json', req.body)
+  fs.writeFileSync(__dirname + '/data/note.json', req.body)
 });
 
 app.get('/note', function(req, res) {
-  fs.readFile(__dirname + '/data/note.json', function(err, data) {
+  fs.readFileSync(__dirname + '/data/note.json', function(err, data) {
     res.send(data.toString());
   });
 });
