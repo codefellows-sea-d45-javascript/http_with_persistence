@@ -2,15 +2,11 @@ var chai = require('chai');
 var expect = chai.expect;
 var chaiHttp = require('chai-http');
 var fs = require('fs');
-
 chai.use(chaiHttp);
-
 require(__dirname + '/../lib/server.js');
 
+
 describe('the server', function(){
-  before(function(){
-    this.JSON = {""}
-  });
 
   it('should 404 for requests to an invalid route for GET', function(done){
     chai.request('localhost:3000')
@@ -33,28 +29,39 @@ describe('the server', function(){
       done();
     });
   });
+});
 
+describe('the server', function(){
   it('should respond to to POST requests to a valid route by saving the data to a file', function(done){
+    var json = {"key": "value"};
     chai.request('localhost:3000')
     .post('/ok_route')
-    .send(this.JSON)
+    .send(json)
     .end(function(err, res){
-      expect(err).to.eql(null);
-      expect(res.status).to.eql(200);
-      expect(res.text).to.eql('xxxxxx');
-      expect().to.eql(false);
+        expect(err).to.eql(null);
+        expect(res.status).to.eql(200);
+        expect(res.text).to.eql('We got your request');
+        var filebuffer = fs.readFileSync(__dirname + '/../data/ok_route.json');
+        expect(filebuffer.toString()).to.eql(JSON.stringify(json));
       done();
-    }.bind(this));
+    });
   });
+});
 
+describe('the server', function(){
+  var json = {"key": "value"};
   it('should respond to a GET requests to a valid route by sending any data put there perviously by a POST request', function(done){
     chai.request('localhost:3000')
     .get('/ok_route')
     .end(function(err, res){
-      expect(err).to.eql(null);
-      expect(res.status).to.eql(200);
-      expect(res.text).to.eql('xxxxxx');
-      done();
-    }.bind(this));
+      fs.readFile(__dirname + '../data/something.json', function(){
+        expect(err).to.eql(null);
+        expect(res.status).to.eql(200);
+        expect(res.text).to.eql(JSON.stringify(json));
+        done();
+      });
+    });
   });
 });
+
+
