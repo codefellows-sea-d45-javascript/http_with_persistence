@@ -1,10 +1,10 @@
 {
   "name": "iryna_bondarenko",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "test.js"
+    "test": "test.js",
+    "start": "node server.js"
   },
   "keywords": [
     "express"
@@ -13,5 +13,6 @@
   "license": "ISC",
   "devDependencies": {
     "express": "^4.13.3"
-  }
+  },
+  "description": ""
 }
