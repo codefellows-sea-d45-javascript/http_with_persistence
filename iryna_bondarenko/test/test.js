@@ -8,7 +8,6 @@ chai.use(chaiHttp);
 var fs = require('fs');
 require(__dirname + '/../server.js');
 
-
 describe("Checking if post request works", function () {
   it ("Should send information into the file", function (done) {
     chai.request("localhost:3000")
