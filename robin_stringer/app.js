@@ -1,7 +1,7 @@
 
 'use strict';
 
-var express = require('express'),
+var express = require('express');
 var app = express();
 var fs = require('fs');
 var bodyParser = require('body-parser');
@@ -15,7 +15,7 @@ app.get('/answers', function(req, res, next){
   fs.readFile(__dirname + '/../data/answers.json', function(err, data){
     if(err) throw err;
     next();
-  })
+  });
   res.send(answers.toString());
 });
 
@@ -31,5 +31,5 @@ app.post('/answers', function(req, res, next) {
 });
 
 var server = app.listen(3000, function(){
-  console.log("The server is running on port 3000!")
+  console.log("The server is running on port 3000!");
 });
