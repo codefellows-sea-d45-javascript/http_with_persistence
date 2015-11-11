@@ -18,6 +18,7 @@ app.use(processData);
 
 app.post('/name', function(req, res) {
   fs.writeFileSync(__dirname + '/data/name.json', req.body);
+  res.send('hey there');
 });
 
 app.get('/name', function(req, res) {
