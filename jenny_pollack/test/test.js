@@ -20,7 +20,7 @@ describe('The server.js file', function (){
   			expect(res).to.have.status(200);
         expect(res.text).to.eql('written');
         done(); 
-  		})
+  		});
   });
 });
 
