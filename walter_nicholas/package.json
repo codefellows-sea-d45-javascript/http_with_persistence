@@ -1,0 +1,18 @@
+{
+  "name": "walter_nicholas",
+  "version": "1.0.0",
+  "description": "an express server which receives post requests of JSON and writes the JSON to a file in data/",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "walter nicholas",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.3"
+  },
+  "devDependencies": {
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3"
+  }
+}
