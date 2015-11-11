@@ -6,28 +6,26 @@ var fs = require('fs');
 require(__dirname + '/../server');
 
 describe('The server file', function() {
-//   before(function() {
-//     this.indexFileString = fs.readFileSync(__dirname + '/../data/sampleJSON').toString();
-//   });
-
-  it('should be able to recieve and send json file to screen', function(done) {
+  it('should respond to a post request', function(done) {
     chai.request('localhost:3000')
-      .get('/note_one')
+      .post('/note_one')
+      .send('{noteBody: \'hello world\'}')
       .end(function(err, res) {
         expect(err).to.eql(null);
-        expect(res).to.be.json;
+        expect(res).to.have.status(200);
+        expect(res.text).to.eql('{noteBody: \'hello world\'}');
         done();
-      }.bind(this));
+      });
   });
-
   it('should be able to recieve and send json file to screen', function(done) {
     chai.request('localhost:3000')
+      //assumes there is a sample.json file in the data directory with {"msg": "hello Felix"}
       .get('/sample')
       .end(function(err, res) {
         expect(err).to.eql(null);
-        expect(res).to.be.json;
+        expect(res).to.have.status(200);
+        expect(res.text).to.eql('{"msg": \"hello Felix\"}\n');
         done();
-      }.bind(this));
+      });
   });
-
 });

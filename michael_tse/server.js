@@ -3,6 +3,7 @@ var app = express();
 var http = require('http');
 var fs = require('fs');
 
+//converts incomming requests into string for future use
 var processData = function(req, res, next) {
   console.log('process data');
   var data = '';
