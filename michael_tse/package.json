@@ -1,0 +1,21 @@
+{
+  "name": "http_with_persistence",
+  "version": "0.1.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "chai-http": "^1.0.0",
+    "gulp-jshint": "^1.12.0",
+    "gulp-mocha": "^2.1.3"
+  },
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}
