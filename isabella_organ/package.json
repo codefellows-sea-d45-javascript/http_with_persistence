@@ -4,7 +4,9 @@
   "description": "HTTP server with persistance",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha/test"
+    "test": "node node_modules/argg tests/*.js",
+    "cover": "istanbul cover --dir reports/coverage node_modules/argg tests/*.js",
+    "plato": "plato -d reports/plato index.js"
   },
   "repository": {
     "type": "git",
