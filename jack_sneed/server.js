@@ -1,23 +1,23 @@
 'use strict';
 
-var http = require('http');
 var fs = require('fs');
-var server = http.createServer(function(req, res) {
-  var path = req.url.split('/');
+var express = require('express');
+var app = express();
+var bodyParser = require('body-parser');
 
-    function resWriteHead(status, contentType) {
-    response.writeHead(status, {
-    'Content-Type': contentType
-    });
-  };
-
-  var items = fs.readdirSync('./json_data');
-  var item_file = [];
-
-
-
+app.get('/json_data', function(req, res) {
+  var fileNames = fs.readdirSync(__dirname + '/json_data/');
+  res.send(fileNames);
+  res.end();
+  console.log('reading directory');
 });
 
-server.listen(3000, function() {
-  console.log('server is running on localhost:8000');
-})
+app.post('/json_data/:num', bodyParser.json(), function(req, res) {
+  fs.writeFileSync(__dirname + '/json_data/' + req.params.num + '.json', req.body + ',');
+  res.send(req.body);
+  console.log('posting to file');
+});
+
+app.listen(3000, function() {
+  console.log('server up');
+});

@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "an http server that will act as a simple data store",
   "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/mocha/bin/mocha test"
   },
   "repository": {
     "type": "git",
@@ -18,8 +21,12 @@
   "homepage": "https://github.com/JackSSS/http_with_persistence#readme",
   "devDependencies": {
     "chai": "^3.4.1",
+    "chai-http": "^1.0.0",
     "gulp-jshint": "^1.12.0",
     "gulp-mocha": "^2.1.3",
     "mocha": "^2.3.3"
+  },
+  "dependencies": {
+    "body-parser": "^1.14.1"
   }
 }
