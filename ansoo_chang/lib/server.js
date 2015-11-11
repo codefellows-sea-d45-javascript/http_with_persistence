@@ -7,10 +7,11 @@ var fs = require('fs');
 var app = express();
 
 var processData = function(request, response, next) {
-  // console.log('process data');
+  console.log('process data');
   var data = '';
-  request.on('data', function(reqData) {
-    data = data + reqData.toString();
+
+  request.on('data', function(requestData) {
+    data = data + requestData.toString();
   });
 
   request.on('end', function(endData) {
@@ -21,19 +22,20 @@ var processData = function(request, response, next) {
 
 app.use(processData);
 
-// post data
-app.post('/data/', function(request, response) {
-  var folder = '/data/';
-  var dataComingIn = fs.writeFileSync(folder, processData);
-  response.send(dataComingIn);
-})
+app.get('/data/:file', function(request, response) {
+  var fileContent = fs.readFileSync(__dirname + '/../data/' + request.params.file).toString();
+  response.json(fileContent);
+});
 
-// get data
-app.get('/data/', function(request, response) {
-  var getData = fs.readFileSync(processData)
-  response.send(getData);
-})
+app.post('/data/:file', function(request, response) {
+  fs.writeFileSync(__dirname + '/../data/' + request.params.file + '.txt', request.body);
+  response.json(request.body);
+});
+
+app.use(function(request, response) {
+  response.status(404).send('Resource not found!');
+});
 
 app.listen(3000, function() {
-  console.log('Server started on port 3000')
-})
+  console.log('Server started on port 3000');
+});
