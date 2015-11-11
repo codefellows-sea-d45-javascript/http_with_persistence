@@ -14,9 +14,8 @@ app.get('/notes', function(req, res) {
 app.post('/notes',jsonParser, function(req, res){
   var postString = JSON.stringify(req.body);
     fs.readFile(__dirname + '/data/notes.json', function(err, data){
-      if (err) throw err;
       var returnjson;
-      if(data.toString().length > 0){
+      if(!err && data.toString().length > 0){
         var fileString = JSON.parse(data.toString());
         var myArray = fileString.notes;
         for (var i = 0; i < myArray.length; i++){
