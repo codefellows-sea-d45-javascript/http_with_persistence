@@ -13,10 +13,10 @@ describe("Checking if post request works", function () {
   it ("Should send information into the file", function (done) {
     chai.request("localhost:3000")
     .post('/note')
-    .send({"'Have a nice day'"})
+    .send({msg: '"Hello"'})
     .end(function(err, res) {
-      var data = fs.readFile(__dirname + '/../data/note.json').toString();
-      expect(data).to.eql({"'Have a nice day'"});
+      //var data = fs.readFile(__dirname + '/../data/note.json');
+      expect(res.text).to.eql("Post received");
       done();
     });
   });
