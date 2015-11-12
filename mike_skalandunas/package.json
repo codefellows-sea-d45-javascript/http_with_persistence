@@ -1,0 +1,23 @@
+{
+  "name": "persistent_http_server",
+  "version": "0.1.0",
+  "description": "A simple, persistent, HTTP server",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "chai-http": "^1.0.0",
+    "express": "^4.13.3"
+  },
+  "devDependencies": {
+    "chai": "^3.4.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Mike Skalandunas <mskalandunas@gmail.com>",
+  "license": "ISC"
+}
