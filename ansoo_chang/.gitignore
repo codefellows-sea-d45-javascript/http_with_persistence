@@ -1,5 +1,6 @@
 **/*.sw?
 **/node_modules
-/data/*.json
+
 **/data
+
 .DS_Store
