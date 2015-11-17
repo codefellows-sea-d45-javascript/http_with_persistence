@@ -3,17 +3,17 @@ var app = express();
 var port = process.env.PORT || 3000;
 var fs = require('fs');
 
-app.get('/ok_route', function(req, res){
-  fs.readFile(__dirname + '/../data/ok_route.json', function(err, data){
+app.get('/ok/:whatever', function(req, res){
+  fs.readFile(__dirname + '/../data/' + req.params.whatever + '.json', function(err, data){
     if (err) return console.log(err);
     res.send(data.toString());
   });
 });
 
-app.post('/ok_route', function(req, res){
+app.post('/ok/:whatever', function(req, res){
   req.on('data', function(data){
     var mydata = data.toString();
-    fs.writeFile(__dirname + '/../data/ok_route.json', mydata,  function(){
+    fs.writeFile(__dirname + '/../data/' + req.params.whatever + '.json', mydata,  function(){
   });
     res.send('We got your request');
   });
