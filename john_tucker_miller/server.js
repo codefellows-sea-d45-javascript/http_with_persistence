@@ -1,16 +1,18 @@
 var express = require('express');
-var app = express();
+var app = module.exports = express();
 var fs = require('fs');
 var bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
 
-app.get('/route', function(req, res){
-  res.json(JSON.parse(fs.readFileSync('./data/data.json')));
+app.get('/:name', function(req, res){
+  res.json(JSON.parse(fs.readFileSync(__dirname + '/data/' + req.params.name + '.json')));
 });
 
-app.post('/route', function (req, res) {
-  fs.writeFileSync('./data/data.json', JSON.stringify(req.body));
+app.post('/:name', function (req, res) {
+  fs.writeFileSync(__dirname + '/data/' + req.params.name + '.json', JSON.stringify(req.body));
+  res.send('success');
+  res.end();
 });
 
 app.listen(3000);

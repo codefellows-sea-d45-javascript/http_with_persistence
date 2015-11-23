@@ -10,10 +10,16 @@
   "author": "",
   "license": "BSD-2-Clause",
   "devDependencies": {
-    "body-parser": "~1.14.1",
-    "express": "~4.13.3",
     "chai-http": "~1.0.0",
     "chai": "~3.4.1",
-    "mocha": "~2.3.3"
+    "mocha": "~2.3.3",
+    "gulp": "~3.9.0",
+    "gulp-mocha": "~2.2.0",
+    "jshint": "~2.9.1-rc1",
+    "gulp-jshint": "~2.0.0"
+  },
+  "dependencies": {
+    "express": "~4.13.3",
+    "body-parser": "~1.14.1"
   }
 }
