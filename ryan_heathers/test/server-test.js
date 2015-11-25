@@ -10,7 +10,7 @@ describe('test server REST capabilities', function() {
 
   it('should save JSON data to file', function(done) {
     chai.request('http://localhost:8080')
-      .post('/kombucha')
+      .post('/data/kombucha')
       .send(this.data)
       .end(function (err, res) {
         expect(err).to.be.null;
@@ -22,7 +22,7 @@ describe('test server REST capabilities', function() {
 
   it('should return the JSON data', function(done) {
     chai.request('http://localhost:8080')
-      .get('/kombucha')
+      .get('/data/kombucha')
       .end(function (err, res) {
         expect(res).to.have.status(200);
         expect(res.text).to.not.eql(null);
