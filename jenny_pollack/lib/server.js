@@ -1,18 +1,32 @@
-var app = require('express')();  
-var fs = require('fs'); 
+var express = require('express');
+var app = express();
+var fs = require('fs');
 
-app.get('/greet', function(req, res) {
-	fs.readFile(__dirname + '/../data/greet.json', function(err, data){
-		res.send(JSON.parse(data.toString())); 
-	});
+var processData = function(req, res, next) {
+  var data = '';
+  req.on('data', function(newData) {
+    data += newData.toString();
+  });
+  req.on('end', function() {
+    req.body = data;
+    next();
+  });
+};
 
+app.use(processData);
+
+app.get('/data/:name', function(req, res) {
+  fs.readFile(__dirname + '/../data/' + req.params.name + '.json', function(err, data) {
+    res.send(data.toString());
+  });
 });
 
-app.post('/greet', function(req, res){
-	var info = fs.createWriteStream(__dirname + '/../data/greet.json');
-	req.pipe(info);  
-	res.send('written'); 
-}); 
+app.post('/data/:name', function(req, res) {
+  fs.writeFile(__dirname + '/../data/' + req.params.name + '.json', req.body, function(err){
+    if (err) console.log(err);
+    	res.send("written");
+    });
+});
 
 app.listen(3000, function() {
   console.log('server up');
