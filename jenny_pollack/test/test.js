@@ -1,4 +1,3 @@
-//what do i want my tests to do? 
 var fs = require('fs');
 var chai = require('chai');
 var chaiHttp = require('chai-http');
