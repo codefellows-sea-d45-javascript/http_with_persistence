@@ -1,17 +1,38 @@
-var http = require('http');
+'use strict';
+
+var fs = require('fs');
 var express = require('express');
 var app = express();
-var fs = require('fs');
-var bodyParser = require('body-parser');
 
-app.use(bodyParser.json());
+app.set('port', (process.env.PORT || 5000));
 
-app.get('/', function (req, res){
-  res.json(JSON.parse(fs.readFileSync('Hello cruel world')));
+var handleData = function(req, res, next) {
+  var data = '';
+
+  req.on('data', function(reqData) {
+    data = data + reqData.toString();
+  });
+
+  req.on('end', function(endData) {
+    req.body = data;
+    next();
+  });
+};
+
+app.get('/data/:id', function(req, res) {
+  fs.readFile(__dirname + '/data/' + req.params.id + '.json', function(err, data) {
+    res.send(data.toString());
+  });
 });
 
-app.post('/', function (req, res){
-  fs.writeFileSync('./data/data.json', JSON.stringify(req.body));
+app.post('/data/:id', handleData, function(req, res) {
+  fs.appendFile(__dirname + '/data/' + req.params.id + '.json', req.body, function(err) {
+    if (err) throw err;
+
+    res.send('file created');
+  });
 });
 
-app.listen(3000);
+app.listen(app.get('port'), function() {
+  console.log('Server listening at ' + app.get('port') + '.');
+});
