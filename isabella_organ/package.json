@@ -1,0 +1,35 @@
+{
+  "name": "isabella_organ",
+  "version": "1.0.0",
+  "description": "HTTP server with persistance",
+  "main": "index.js",
+  "scripts": {
+    "test": "node node_modules/argg tests/*.js",
+    "cover": "istanbul cover --dir reports/coverage node_modules/argg tests/*.js",
+    "plato": "plato -d reports/plato index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isabellaorgan/http_with_persistence.git"
+  },
+  "keywords": [
+    "HTTP",
+    "server",
+    "express",
+    "node"
+  ],
+  "author": "isabellaorgan@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/isabellaorgan/http_with_persistence/issues"
+  },
+  "homepage": "https://github.com/isabellaorgan/http_with_persistence#readme",
+  "dependencies": {
+    "express": "^4.13.3"
+  },
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "gulp-mocha": "^2.1.3",
+    "mocha": "^2.3.3"
+  }
+}
