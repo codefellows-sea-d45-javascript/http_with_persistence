@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 var gulp = require('gulp');
 var mocha = require('gulp-mocha');
@@ -7,7 +7,7 @@ var jshint = require('gulp-jshint');
 var appFiles = ['server.js', './lib/**/*.js'];
 var testFiles = ['./test/**/*.js'];
 
-gulp.task('jshint:test', function() {
+gulp.task('jshint:test', () => {
 	return gulp.src(testFiles)
 		.pipe(jshint({
 				node: true,
@@ -21,7 +21,7 @@ gulp.task('jshint:test', function() {
 		.pipe(jshint.reporter('default'));
 });
 
-gulp.task('jshint:app', function() {
+gulp.task('jshint:app', () => {
 	return gulp.src(appFiles)
 	.pipe(jshint({
 		node: true
@@ -30,10 +30,10 @@ gulp.task('jshint:app', function() {
 });
 
 
-gulp.task('mocha:test', function () {
+gulp.task('mocha:test', () => {
 	return gulp.src(testFiles)
 	.pipe(mocha({
-		reporter: 'spec'}));
+		reporter: 'spec' }));
 });
 
 gulp.task('jshint', ['jshint:test', 'jshint:app']);
